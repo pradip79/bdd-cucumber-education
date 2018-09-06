@@ -2,7 +2,6 @@ package com.cerner.automation.bdd_cucumber.ittool;
 
 import org.openqa.selenium.WebDriver;
 import com.cerner.automation.bdd_cucumber.CommonTask;
-import com.cerner.automation.bdd_cucumber.SharedClass;
 import com.cerner.automation.bdd_cucumber.SharedDriver;
 import com.cerner.automation.bdd_cucumber.ittool.pages.LandingPage;
 import static org.testng.Assert.*;
@@ -14,8 +13,7 @@ public class ITToolStepDefs {
 	
 	private WebDriver driver;
 	private LandingPage landingPage;
-	SharedClass sharedClass;
-	
+		
 	public ITToolStepDefs(SharedDriver driver) {
 		this.driver = driver;
 	}	
