@@ -2,11 +2,6 @@
 # Sample scenarios only--------
 Feature: Example to test data tables only
 
-  Scenario: Single-column, multiple rows
-    Then Below ITTool options are available
-      | Generate HL7 from default view |
-      | Inbound existing HL7 script    |
-
   Scenario: Single-row, multiple columns
     Then Below details will be displayed - one
       | Cucumber | Selenium | JMeter |
