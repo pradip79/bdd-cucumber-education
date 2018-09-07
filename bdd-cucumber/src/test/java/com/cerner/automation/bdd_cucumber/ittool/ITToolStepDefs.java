@@ -5,6 +5,10 @@ import com.cerner.automation.bdd_cucumber.CommonTask;
 import com.cerner.automation.bdd_cucumber.SharedDriver;
 import com.cerner.automation.bdd_cucumber.ittool.pages.LandingPage;
 import static org.testng.Assert.*;
+
+import java.util.List;
+
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -51,5 +55,16 @@ public class ITToolStepDefs {
 	    // Write code here that turns the phrase above into concrete actions
 	    driver.quit();
 	}
+	
+	@Then("^Below ITTool options are available$")
+	public void below_ITTool_options_are_available(DataTable dataTable) throws Throwable {
+	   List<String> optionList = dataTable.asList(String.class);
+	   
+	   landingPage = new LandingPage(driver);	
+	   List<String> options = landingPage.getUserOptions();
+	   
+	   assertEquals(options.containsAll(optionList), true);    
+	}
+	
 
 }
