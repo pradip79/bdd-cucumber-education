@@ -1,4 +1,4 @@
-# This is our first feature
+# This is our first feature for ITTool
 Feature: Landing page for ITTool users
 	In order to access IT Tool
   As a Soarian User
