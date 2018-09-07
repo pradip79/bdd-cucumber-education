@@ -1,5 +1,5 @@
 # Example feature to test data tables of different types
-# Sample scenarios only
+# Sample scenarios only------------
 Feature: Example to test data tables only
 
   Scenario: Single-column, multiple rows
