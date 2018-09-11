@@ -1,3 +1,7 @@
+/**
+ * This class contains the glue code between the feature file
+ * and the AUT.
+ */
 package com.cerner.automation.bdd_cucumber.ittool;
 
 import org.openqa.selenium.WebDriver;
