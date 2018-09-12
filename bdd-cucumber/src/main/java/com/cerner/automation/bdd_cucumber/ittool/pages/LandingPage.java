@@ -36,8 +36,12 @@ public class LandingPage {
 		List<String> optionTexts = new ArrayList<String>();
 		optionTexts.add(options.get(0).getText());
 		optionTexts.add(options.get(2).getText());		
-		return optionTexts;		
-		
+		return optionTexts;				
+	}
+
+	public void chooseDefaultViewOption() {
+		WebElement defaultViewButton = driver.findElement(By.xpath("//button[@title='Perform HL7 Inbound Transaction under a default form view']"));
+		defaultViewButton.click();		
 	}
 		
 

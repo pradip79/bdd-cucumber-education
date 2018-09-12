@@ -7,6 +7,7 @@ package com.cerner.automation.bdd_cucumber.ittool;
 import org.openqa.selenium.WebDriver;
 import com.cerner.automation.bdd_cucumber.CommonTask;
 import com.cerner.automation.bdd_cucumber.SharedDriver;
+import com.cerner.automation.bdd_cucumber.ittool.pages.DefaultViewPage;
 import com.cerner.automation.bdd_cucumber.ittool.pages.LandingPage;
 import static org.testng.Assert.*;
 
@@ -21,12 +22,13 @@ public class ITToolStepDefs {
 	
 	private WebDriver driver;
 	private LandingPage landingPage;
+	private DefaultViewPage defaultViewPage;
 		
 	public ITToolStepDefs(SharedDriver driver) {
 		this.driver = driver;
 	}	
 	
-	@When("^User navigates to the URL \"([^\"]*)\"$")
+	@When("^User navigate(?:s|d) to the URL \"([^\"]*)\"$")
 	public void user_navigates_to_the_URL(String appURL) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    CommonTask.navigateTo(driver, appURL);
@@ -34,9 +36,9 @@ public class ITToolStepDefs {
 
 	@Then("^ITTool landing page is opened$")
 	public void ittool_landing_page_is_opened() throws Throwable {
-		
+
 		landingPage = new LandingPage(driver);		
-		assertEquals("Inbound Transaction Tool", landingPage.getPageHeader());		
+		assertEquals("Inbound Transaction Tool", landingPage.getPageHeader());	
 	    
 	}
 	
@@ -68,6 +70,20 @@ public class ITToolStepDefs {
 	   List<String> options = landingPage.getUserOptions();
 	   
 	   assertEquals(options.containsAll(optionList), true);    
+	}
+	
+	@When("^User chooses default view option$")
+	public void user_chooses_default_view_option() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		landingPage = new LandingPage(driver);
+		landingPage.chooseDefaultViewOption();
+	}
+
+	@Then("^ITTool default view will be opened$")
+	public void ittool_default_view_will_be_opened() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    defaultViewPage = new DefaultViewPage(driver);
+	    assertEquals(defaultViewPage.getPageHeader(),"HL7 -Default Transaction Terminal");
 	}
 	
 
